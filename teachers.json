@@ -1,8 +1,8 @@
 [
   {
     "name": "田中先生",
-    "tags": ["進路"],
-    "sub_tags": ["大学進学", "専門学校", "就職"],
+    "tags": ["恋愛"],
+    "sub_tags": [""],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
   },
@@ -15,14 +15,14 @@
   },
   {
     "name": "佐藤先生",
-    "tags": ["学習"],
+    "tags": ["恋愛"],
     "sub_tags": ["英語", "数学", "国語"],
     "photo_url": "https://example.com/sato.jpg",
     "comment": "勉強のモチベーションアップを手助けしてくれます。"
   },
   {
     "name": "中村先生",
-    "tags": ["その他"],
+    "tags": ["恋愛"],
     "sub_tags": ["生活", "人間関係", "健康"],
     "photo_url": "https://example.com/nakamura.jpg",
     "comment": "どんな悩みでも親身に相談にのってくれる先生です。"
