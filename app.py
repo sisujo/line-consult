@@ -70,7 +70,7 @@ def show_genre(reply_token):
     items = ["恋愛"]
     buttons = [QuickReplyButton(action=MessageAction(label=i, text=i)) for i in items]
     message = TextSendMessage(
-        text="こんにちは！どんな悩みですか？",
+        text="こんにちは！どんな恋愛の悩みですか？",
         quick_reply=QuickReply(items=buttons)
     )
     line_bot_api.reply_message(reply_token, message)
@@ -80,8 +80,7 @@ def show_genre(reply_token):
 def show_detail(reply_token, genre):
     options = {
         "恋愛": ["交際中","片思い", "失恋", "両片思い","気になる","未練あり","好きな人がいない"],
-        "進路": ["大学", "就職", "専門学校"],
-        "友人": ["喧嘩中", "友達がいない", "友達の機嫌がわからない"]
+        
     }
     buttons = [QuickReplyButton(action=MessageAction(label=o, text=o)) for o in options.get(genre, ["その他"])]
     message = TextSendMessage(
@@ -134,5 +133,6 @@ def show_teacher(reply_token, genre, detail):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
