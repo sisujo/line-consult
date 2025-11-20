@@ -79,7 +79,7 @@ def show_genre(reply_token):
 # --- 詳細選択 ---
 def show_detail(reply_token, genre):
     options = {
-        "恋愛": ["交際中","片思い", "失恋", "両片思い","気になる","未練あり","好きな人がいない"],
+        "恋愛": ["交際中","片思い", "失恋", "両片思い","気になる","未練あり","好きな人がいない","わからない"],
         
     }
     buttons = [QuickReplyButton(action=MessageAction(label=o, text=o)) for o in options.get(genre, ["その他"])]
@@ -133,6 +133,7 @@ def show_teacher(reply_token, genre, detail):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
