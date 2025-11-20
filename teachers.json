@@ -1,13 +1,13 @@
 [
   {
-    "name": "田中先生",
+    "name": "田畑先生",
     "tags": ["恋愛"],
     "sub_tags": ["交際中"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
   },
   {
-    "name": "山本先生",
+    "name": "淵之上先生",
     "tags": ["恋愛"],
     "sub_tags": ["片思い"],
     "photo_url": "https://example.com/yamamoto.jpg",
@@ -16,33 +16,40 @@
   {
     "name": "佐藤先生",
     "tags": ["恋愛"],
-    "sub_tags": ["失恋"],
+    "sub_tags": ["わからない"],
     "photo_url": "https://example.com/sato.jpg",
     "comment": "勉強のモチベーションアップを手助けしてくれます。"
   },
   {
-    "name": "中村先生",
+    "name": "中馬先生",
     "tags": ["恋愛"],
-    "sub_tags": ["両片思い"],
+    "sub_tags": ["片思い"],
     "photo_url": "https://example.com/nakamura.jpg",
     "comment": "どんな悩みでも親身に相談にのってくれる先生です。"
   }
    {
-    "name": "田中先生",
+    "name": "永薗先生",
     "tags": ["恋愛"],
     "sub_tags": ["気になる"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
   },
    {
-    "name": "田中先生",
+    "name": "竪山先生",
     "tags": ["恋愛"],
     "sub_tags": ["未練あり"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
   },
    {
-    "name": "田中先生",
+    "name": "牧田先生",
+    "tags": ["恋愛"],
+    "sub_tags": ["好きな人がいない"],
+    "photo_url": "https://example.com/tanaka.jpg",
+    "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
+  },
+   {
+    "name": "水之浦先生",
     "tags": ["恋愛"],
     "sub_tags": ["好きな人がいない"],
     "photo_url": "https://example.com/tanaka.jpg",
