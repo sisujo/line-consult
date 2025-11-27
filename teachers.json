@@ -4,56 +4,56 @@
     "tags": ["恋愛"],
     "sub_tags": ["交際中"],
     "photo_url": "https://example.com/tanaka.jpg",
-    "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
+    "comment": "塩対応だけど、親身になって相談に乗ってくれる国語の先生"
   },
   {
     "name": "淵之上先生",
     "tags": ["恋愛"],
     "sub_tags": ["片思い"],
     "photo_url": "https://example.com/yamamoto.jpg",
-    "comment": "人間関係の悩みを丁寧に聞いてくれる先生です。"
+    "comment": "見た目はちょっと怖いけど、実際はノリが良くて話しやすい体育の先生"
   },
   {
-    "name": "佐藤先生",
+    "name": "永山先生",
     "tags": ["恋愛"],
     "sub_tags": ["わからない"],
     "photo_url": "https://example.com/sato.jpg",
-    "comment": "勉強のモチベーションアップを手助けしてくれます。"
+    "comment": ""
   },
   {
     "name": "中馬先生",
     "tags": ["恋愛"],
-    "sub_tags": ["片思い"],
+    "sub_tags": ["両片思い"],
     "photo_url": "https://example.com/nakamura.jpg",
-    "comment": "どんな悩みでも親身に相談にのってくれる先生です。"
+    "comment": "国語の先生"
   }
    {
     "name": "永薗先生",
     "tags": ["恋愛"],
     "sub_tags": ["気になる"],
     "photo_url": "https://example.com/tanaka.jpg",
-    "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
+    "comment": "体育の先生"
   },
    {
     "name": "竪山先生",
     "tags": ["恋愛"],
     "sub_tags": ["未練あり"],
     "photo_url": "https://example.com/tanaka.jpg",
-    "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
+    "comment": "優しくてみんなのお父さん的な体育の先生"
   },
    {
     "name": "牧田先生",
     "tags": ["恋愛"],
     "sub_tags": ["好きな人がいない"],
     "photo_url": "https://example.com/tanaka.jpg",
-    "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
+    "comment": "不器用だけど優しくて生徒思いの体育の先生"
   },
    {
     "name": "水之浦先生",
     "tags": ["恋愛"],
     "sub_tags": ["好きな人がいない"],
     "photo_url": "https://example.com/tanaka.jpg",
-    "comment": "進路全般に詳しく、特に大学進学に強い先生です。"
+    "comment": "フレンドリーで親しみにあふれた国語の先生"
   },
 ]
 
