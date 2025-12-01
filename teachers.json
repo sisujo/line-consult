@@ -18,7 +18,7 @@
     "tags": ["恋愛"],
     "sub_tags": ["わからない"],
     "photo_url": "https://example.com/sato.jpg",
-    "comment": ""
+    "comment": "."
   },
   {
     "name": "中馬先生",
@@ -26,7 +26,7 @@
     "sub_tags": ["両片思い"],
     "photo_url": "https://example.com/nakamura.jpg",
     "comment": "国語の先生"
-  }
+  },
    {
     "name": "永薗先生",
     "tags": ["恋愛"],
