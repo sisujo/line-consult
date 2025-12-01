@@ -92,9 +92,10 @@ def show_detail(reply_token, genre):
 
 # --- 教員紹介（画像あり/なし対応） ---
 def show_teacher(reply_token, genre, detail):
+    # genre が tags に一致、かつ detail が sub_tags に一致する教員を探す
     matches = [
         t for t in teachers_data
-        if genre in t.get("tags", []) or detail in t.get("tags", [])
+        if genre in t.get("tags", []) and detail in t.get("sub_tags", [])
     ]
 
     if not matches:
@@ -133,6 +134,7 @@ def show_teacher(reply_token, genre, detail):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
