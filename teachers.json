@@ -15,7 +15,7 @@
     "photo_url": "https://example.com/yamamoto.jpg",
     "comment": "見た目はちょっと怖いけど、実際はノリが良くて話しやすい体育の先生"
   },
-    {
+  {
     "name": "水之浦先生",
     "tags": ["恋愛"],
     "sub_tags": ["失恋"],
@@ -29,28 +29,25 @@
     "photo_url": "https://example.com/nakamura.jpg",
     "comment": "人生経験豊富な国語の先生"
   },
-   {
+  {
     "name": "永薗先生",
     "tags": ["恋愛"],
     "sub_tags": ["気になる"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "年齢が一番近くて話しやすい体育の先生"
   },
-   {
+  {
     "name": "竪山先生",
     "tags": ["恋愛"],
     "sub_tags": ["未練あり"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "優しくてみんなのお父さん的な体育の先生"
   },
-   {
+  {
     "name": "牧田先生",
     "tags": ["恋愛"],
     "sub_tags": ["好きな人がいない"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "不器用だけど優しくて生徒思いの体育の先生"
   }
-   {
-   
 ]
-
