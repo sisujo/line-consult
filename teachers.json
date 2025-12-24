@@ -21,7 +21,7 @@
     "sub_tags": ["失恋"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "フレンドリーで親しみにあふれた国語の先生"
-  }
+  },
   {
     "name": "中馬先生",
     "tags": ["恋愛"],
@@ -49,7 +49,7 @@
     "sub_tags": ["好きな人がいない"],
     "photo_url": "https://example.com/tanaka.jpg",
     "comment": "不器用だけど優しくて生徒思いの体育の先生"
-  },
+  }
    {
    
 ]
