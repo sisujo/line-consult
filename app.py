@@ -128,12 +128,13 @@ def show_teacher(reply_token, genre, detail):
         )
         line_bot_api.reply_message(reply_token, message)
     else:  # 画像なし
-        text = f"おすすめの先生は {teacher['name']} 先生です。\n{teacher.get('comment','')}"
+        text = f"おすすめの先生は {teacher['name']} 先生です。\n"{teacher.get('comment','')}
         line_bot_api.reply_message(reply_token, TextSendMessage(text=text))
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
