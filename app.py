@@ -1,14 +1,12 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, QuickReply, QuickReplyButton, MessageAction, FlexSendMessage
-import os, json, random
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
     QuickReply, QuickReplyButton, MessageAction,
-    FlexSendMessage, VideoSendMessage   # ← 追加
+    FlexSendMessage, VideoSendMessage
 )
-
+import os, json, random
 
 app = Flask(__name__)
 
@@ -27,15 +25,15 @@ with open("teachers.json", "r", encoding="utf-8") as f:
 user_state = {}
 
 
-@app.route("/callback", methods=['POST'])
+@app.route("/callback", methods=["POST"])
 def callback():
-    signature = request.headers['X-Line-Signature']
+    signature = request.headers["X-Line-Signature"]
     body = request.get_data(as_text=True)
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-    return 'OK'
+    return "OK"
 
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -85,10 +83,15 @@ def show_genre(reply_token):
 # --- 詳細選択 ---
 def show_detail(reply_token, genre):
     options = {
-        "恋愛": ["交際中","片思い", "失恋", "両片思い","気になる","未練あり","好きな人がいない","わからない"],
-        
+        "恋愛": [
+            "交際中", "片思い", "失恋", "両片思い",
+            "気になる", "未練あり", "好きな人がいない", "わからない"
+        ]
     }
-    buttons = [QuickReplyButton(action=MessageAction(label=o, text=o)) for o in options.get(genre, ["その他"])]
+    buttons = [
+        QuickReplyButton(action=MessageAction(label=o, text=o))
+        for o in options.get(genre, ["その他"])
+    ]
     message = TextSendMessage(
         text=f"{genre}の中で、どの内容ですか？",
         quick_reply=QuickReply(items=buttons)
@@ -96,7 +99,7 @@ def show_detail(reply_token, genre):
     line_bot_api.reply_message(reply_token, message)
 
 
-# --- 教員紹介（画像あり/なし対応） ---
+# --- 教員紹介（動画 → 先生カード） ---
 def show_teacher(reply_token, genre, detail):
     matches = [
         t for t in teachers_data
@@ -113,16 +116,7 @@ def show_teacher(reply_token, genre, detail):
     teacher = random.choice(matches)
     messages = []
 
-    # ① 動画があれば動画を送る
-    if teacher.get("video_url") and teacher.get("video_thumb"):
-        messages.append(
-            VideoSendMessage(
-                original_content_url=teacher["video_url"],
-                preview_image_url=teacher["video_thumb"]
-            )
-        )
-
-    # ② 先生紹介（Flex or テキスト）
+    # ② 先生紹介（Flex）
     if teacher.get("photo_url"):
         messages.append(
             FlexSendMessage(
@@ -163,17 +157,19 @@ def show_teacher(reply_token, genre, detail):
             )
         )
 
-    # ③ まとめて返信（最大5件までOK）
+    # ① 動画（あれば）
+    if teacher.get("video_url") and teacher.get("video_thumb"):
+        messages.append(
+            VideoSendMessage(
+                original_content_url=teacher["video_url"],
+                preview_image_url=teacher["video_thumb"]
+            )
+        )
+
+
+    # ③ まとめて返信（最大5件）
     line_bot_api.reply_message(reply_token, messages)
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
-
-
-
-
-
-
-
