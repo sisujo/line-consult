@@ -3,6 +3,12 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, QuickReply, QuickReplyButton, MessageAction, FlexSendMessage
 import os, json, random
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
+    QuickReply, QuickReplyButton, MessageAction,
+    FlexSendMessage, VideoSendMessage   # ← 追加
+)
+
 
 app = Flask(__name__)
 
@@ -92,48 +98,78 @@ def show_detail(reply_token, genre):
 
 # --- 教員紹介（画像あり/なし対応） ---
 def show_teacher(reply_token, genre, detail):
-    # genre が tags に一致、かつ detail が sub_tags に一致する教員を探す
     matches = [
         t for t in teachers_data
         if genre in t.get("tags", []) and detail in t.get("sub_tags", [])
     ]
 
     if not matches:
-        line_bot_api.reply_message(reply_token, TextSendMessage(text="条件に合う先生が見つかりませんでした。"))
+        line_bot_api.reply_message(
+            reply_token,
+            TextSendMessage(text="条件に合う先生が見つかりませんでした。")
+        )
         return
 
     teacher = random.choice(matches)
+    messages = []
 
-    if teacher.get("photo_url"):  # 画像あり
-        message = FlexSendMessage(
-            alt_text="おすすめの先生",
-            contents={
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": teacher["photo_url"],
-                    "size": "full",
-                    "aspectRatio": "1:1",
-                    "aspectMode": "cover"
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {"type": "text", "text": teacher["name"], "weight": "bold", "size": "xl"},
-                        {"type": "text", "text": teacher.get("comment", ""), "wrap": True}
-                    ]
-                }
-            }
+    # ① 動画があれば動画を送る
+    if teacher.get("video_url") and teacher.get("video_thumb"):
+        messages.append(
+            VideoSendMessage(
+                original_content_url=teacher["video_url"],
+                preview_image_url=teacher["video_thumb"]
+            )
         )
-        line_bot_api.reply_message(reply_token, message)
-    else:  # 画像なし
-        text = f"おすすめの先生は {teacher['name']} 先生です。\n{teacher.get('comment','')}"
-        line_bot_api.reply_message(reply_token, TextSendMessage(text=text))
+
+    # ② 先生紹介（Flex or テキスト）
+    if teacher.get("photo_url"):
+        messages.append(
+            FlexSendMessage(
+                alt_text="おすすめの先生",
+                contents={
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": teacher["photo_url"],
+                        "size": "full",
+                        "aspectRatio": "1:1",
+                        "aspectMode": "cover"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": teacher["name"],
+                                "weight": "bold",
+                                "size": "xl"
+                            },
+                            {
+                                "type": "text",
+                                "text": teacher.get("comment", ""),
+                                "wrap": True
+                            }
+                        ]
+                    }
+                }
+            )
+        )
+    else:
+        messages.append(
+            TextSendMessage(
+                text=f"おすすめの先生は {teacher['name']} 先生です。\n{teacher.get('comment','')}"
+            )
+        )
+
+    # ③ まとめて返信（最大5件までOK）
+    line_bot_api.reply_message(reply_token, messages)
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
