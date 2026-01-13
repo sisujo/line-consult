@@ -12,7 +12,9 @@
     "name": "淵之上先生",
     "tags": ["恋愛"],
     "sub_tags": ["片思い"],
-    "photo_url": "https://example.com/yamamoto.jpg",
+    "photo_url": "https://raw.githubusercontent.com/sisujo/line-consult/main/images/huti.png",
+    "video_url": "https://res.cloudinary.com/dmmgmyfd1/video/upload/v1768280990/huti_yk45rv.mp4",
+    "video_thumb": "https://raw.githubusercontent.com/sisujo/line-consult/main/images/huti.png",
     "comment": "見た目はちょっと怖いけど、実際はノリが良くて話しやすい体育の先生"
   },
   {
